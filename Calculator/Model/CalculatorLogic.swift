@@ -10,21 +10,26 @@ import Foundation
 
 struct CalculatorLogic {
     
-    var number: Double
+    private var number: Double?
     
-    init(number: Double) {
+    mutating func setNumber(_ number: Double) {
         self.number = number
     }
     
     func calculate(symbol: String) -> Double? {
-        if symbol == "+/-" {
-            return number * -1
-        } else if symbol == "AC" {
-            return 0
-        } else if symbol == "%" {
-            return number * 0.01
+        if let num = number {
+            if symbol == "+/-" {
+                return num * -1
+            } else if symbol == "AC" {
+                return 0
+            } else if symbol == "%" {
+                return num * 0.01
+            } else if symbol == "+" {
+                
+            } else if symbol == "-" {
+                
+            } 
         }
-        
         return nil
     }
 }
